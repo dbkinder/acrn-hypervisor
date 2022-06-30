@@ -567,6 +567,7 @@ Build ACRN
 
       .. code-block:: bash
 
+         cd ~/acrn-work/acrn-kernel
          make distclean
 
    #. Build the ACRN kernel:
