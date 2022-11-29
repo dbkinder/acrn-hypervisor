@@ -584,7 +584,7 @@ Build ACRN
    .. code-block:: bash
 
       cd ~/acrn-work/acrn-hypervisor
-      debian/debian_build.sh clean && debian/debian_build.sh -c ~/acrn-work/MyConfiguration -b "" -s ""
+      debian/debian_build.sh clean && debian/debian_build.sh -c ~/acrn-work/MyConfiguration -b "my_board" -s "MyConfiguration"
 
    The build typically takes a few minutes. When done, the build generates several
    Debian packages in the parent (``~/acrn-work``) directory:
@@ -691,8 +691,9 @@ Install ACRN
    .. code-block:: bash
 
       cd ~/acrn-work
-      sudo apt install ./acrn*.deb ./grub*.deb
-      sudo apt install ./*acrn-service-vm*.deb
+      cp ./acrn*.deb ./grub*.deb ./*acrn-service-vm*.deb /tmp
+      sudo apt install /tmp/acrn*.deb /tmp/grub*.deb
+      sudo apt install /tmp/*acrn-service-vm*.deb
 
 #. Reboot the system:
 
@@ -833,7 +834,7 @@ Launch the User VM
    .. code-block:: console
 
       acrn@vecow:~$ uname -r
-      5.15.44-acrn-service-vm
+      5.15.71-acrn-service-vm
 
    The User VM has launched successfully. You have completed this ACRN setup.
 
